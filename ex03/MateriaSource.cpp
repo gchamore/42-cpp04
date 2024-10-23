@@ -6,7 +6,7 @@
 /*   By: gchamore <gchamore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:35:05 by gchamore          #+#    #+#             */
-/*   Updated: 2024/10/23 15:39:56 by gchamore         ###   ########.fr       */
+/*   Updated: 2024/10/23 16:04:24 by gchamore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,11 @@ void MateriaSource::learnMateria(AMateria *materia)
 		{
 			this->memory_[i] = materia;
 			materia->setMateriaSource(this);
-			std::cout << "Materia source learned " << materia->getType() << "!"
-					  << std::endl;
+			std::cout << "Materia source learned " << materia->getType() << "!" << std::endl;
 			return;
 		}
 	}
-	std::cout << "Couldn't learn " << materia->getType()
-			  << ", because materia source is full." << std::endl;
+	std::cout << "Couldn't learn " << materia->getType() << ", because materia source is full." << std::endl;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type)

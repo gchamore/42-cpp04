@@ -21,7 +21,6 @@ Ice::Ice()
 
 Ice::Ice(const Ice &other)
 {
-	other.getType();
 	this->_type = "ice";
 	this->_mage = other._mage;
 	this->_materia_source = other._materia_source;

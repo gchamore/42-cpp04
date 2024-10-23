@@ -6,7 +6,7 @@
 /*   By: gchamore <gchamore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:02:41 by gchamore          #+#    #+#             */
-/*   Updated: 2024/10/23 15:39:24 by gchamore         ###   ########.fr       */
+/*   Updated: 2024/10/23 15:55:19 by gchamore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Character::Character()
 	_n_characters++;
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = NULL;
-	_name = "nameless hero";
+	_name = "Didier";
 }
 
 Character::Character(std::string name)
@@ -62,7 +62,6 @@ Character::~Character()
 			delete this->_inventory[i];
 	}
 
-	// If no characters are left, delete items on the floor
 	if (_n_characters == 0)
 	{
 		std::cout << "All characters are gone. Items on the floor disappear." << std::endl;
