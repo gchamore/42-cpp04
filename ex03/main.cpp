@@ -6,7 +6,7 @@
 /*   By: gchamore <gchamore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:42:27 by gchamore          #+#    #+#             */
-/*   Updated: 2024/10/23 16:41:38 by gchamore         ###   ########.fr       */
+/*   Updated: 2024/10/31 11:11:34 by gchamore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 // int main(void)
 // {
-// 	std::cout << BLUE << "----- PDF Test: -----" << std::endl << std::endl;
+// 	std::cout << BLUE << "----- Test: -----" << std::endl << std::endl;
 
 // 	IMateriaSource *src = new MateriaSource();
 // 	src->learnMateria(new Ice());
@@ -46,7 +46,8 @@
 // 	ICharacter *Didier = new Character("Didier");
 // 	for (int i = 0; i < 56; i++)
 // 	{
-// 		Didier->equip(materia_source->createMateria("cure"));
+// 		AMateria *materia = materia_source->createMateria("cure");
+// 		Didier->equip(materia); // Plus besoin de gérer explicitement l’échec, il est géré dans `equip`.
 // 	}
 // 	delete materia_source;
 // 	delete Didier;

@@ -34,7 +34,7 @@ AMateria::AMateria(const AMateria &copy) : _type(copy._type)
 }
 
 AMateria::~AMateria()
-{
+{	
 }
 
 AMateria &AMateria::operator=(const AMateria &other)

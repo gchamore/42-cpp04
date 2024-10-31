@@ -26,8 +26,9 @@ Ice::Ice(const Ice &other)
 	this->_materia_source = other._materia_source;
 }
 
-Ice::~Ice()
+Ice::~Ice(void)
 {
+	// std::cout << "Ice destroyed" << std::endl;
 }
 
 Ice &Ice::operator=(Ice other)

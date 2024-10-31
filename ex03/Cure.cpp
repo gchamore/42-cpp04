@@ -28,6 +28,7 @@ Cure::Cure(const Cure &other)
 
 Cure::~Cure()
 {
+	// std::cout << "Cure destroyed" << std::endl;
 }
 
 Cure &Cure::operator=(Cure other)

@@ -6,7 +6,7 @@
 /*   By: gchamore <gchamore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:02:41 by gchamore          #+#    #+#             */
-/*   Updated: 2024/10/23 15:55:19 by gchamore         ###   ########.fr       */
+/*   Updated: 2024/10/31 11:01:44 by gchamore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,10 @@ Character::~Character()
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->_inventory[i])
+		{
 			delete this->_inventory[i];
+			this->_inventory[i] = NULL;
+		}
 	}
 
 	if (_n_characters == 0)
@@ -73,26 +76,45 @@ Character::~Character()
 				floor_[i] = NULL;
 			}
 		}
+		delete *floor_;
 	}
-}
-
-void Character::swap(Character &first, Character &second)
-{
-	std::swap(first._name, second._name);
-	std::swap(first._inventory, second._inventory);
 }
 
 Character &Character::operator=(const Character &other)
 {
-	std::cout << "Character copy assignment operator called" << std::endl;
-	Character tmp = Character(other);
-	Character::swap(*this, tmp);
-	return *this;
+    std::cout << "Character copy assignment operator called" << std::endl;
+
+    if (this == &other)
+        return *this;
+    this->_name = other._name;
+    for (int i = 0; i < 4; i++)
+	{
+        if (this->_inventory[i])
+		{
+            delete this->_inventory[i];
+            this->_inventory[i] = NULL;
+        }
+    }
+    for (int i = 0; i < 4; i++)
+	{
+        if (other._inventory[i])
+		{
+            this->_inventory[i] = other._inventory[i]->clone();
+        }
+    }
+    return *this;
 }
 
-std::string const &Character::getName() const { return this->_name; }
 
-void Character::setName(std::string name) { this->_name = name; }
+std::string const &Character::getName() const
+{
+	return this->_name;
+}
+
+void Character::setName(std::string name)
+{
+	this->_name = name;
+}
 
 AMateria *Character::getInventory(int idx) const
 {

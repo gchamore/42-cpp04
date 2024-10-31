@@ -6,7 +6,7 @@
 /*   By: gchamore <gchamore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:02:44 by gchamore          #+#    #+#             */
-/*   Updated: 2024/10/23 15:39:27 by gchamore         ###   ########.fr       */
+/*   Updated: 2024/10/31 11:09:23 by gchamore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ public:
 
 	virtual ~Character();
 
-	void swap(Character &first, Character &second);
 	Character &operator=(const Character &other);
 
 	std::string const &getName() const;

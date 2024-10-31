@@ -6,7 +6,7 @@
 /*   By: gchamore <gchamore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:35:07 by gchamore          #+#    #+#             */
-/*   Updated: 2024/10/23 15:39:59 by gchamore         ###   ########.fr       */
+/*   Updated: 2024/10/31 11:07:20 by gchamore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ public:
 
 	virtual ~MateriaSource();
 
-	MateriaSource &operator=(MateriaSource other);
-	void swap(MateriaSource &first, MateriaSource &second);
+	MateriaSource &operator=(const MateriaSource &other);
 
 	AMateria *getMemory(int idx) const;
 	void setMemory(int idx, AMateria *materia);

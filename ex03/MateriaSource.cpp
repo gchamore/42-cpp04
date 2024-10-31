@@ -6,7 +6,7 @@
 /*   By: gchamore <gchamore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 13:35:05 by gchamore          #+#    #+#             */
-/*   Updated: 2024/10/23 16:04:24 by gchamore         ###   ########.fr       */
+/*   Updated: 2024/10/31 11:07:39 by gchamore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,23 @@ MateriaSource::~MateriaSource()
 	}
 }
 
-MateriaSource &MateriaSource::operator=(MateriaSource other)
+MateriaSource &MateriaSource::operator=(const MateriaSource &other)
 {
-	MateriaSource::swap(*this, other);
-	return *this;
+    if (this != &other)
+    {
+        for (int i = 0; i < 4; ++i)
+        {
+            if (this->memory_[i] != NULL)
+                delete this->memory_[i];
+            if (other.memory_[i] != NULL)
+                this->memory_[i] = other.memory_[i]->clone();
+            else
+                this->memory_[i] = NULL;
+        }
+    }
+    return *this;
 }
 
-void MateriaSource::swap(MateriaSource &first, MateriaSource &second)
-{
-	std::swap(first.memory_, second.memory_);
-}
 
 AMateria *MateriaSource::getMemory(int idx) const
 {
